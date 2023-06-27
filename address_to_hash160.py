@@ -8,10 +8,7 @@ def convert_to_hash160(address):
             hrp, data = bech32_decode(address)
             if not data:
                 raise ValueError("Invalid Bech32 address")
-            print("hrp:", hrp)  # Debugging
-            print("data:", data)  # Debugging
             converted = convertbits(data, 5, 8, True)
-            print("converted:", converted)  # Debugging
             decoded = bytes(converted)
         else:
             decoded = base58.b58decode_check(address)
